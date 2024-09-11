@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "servidorTp1_taller2",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node miServicio.js",
-    "type": "module",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "joaquinGimenez",
