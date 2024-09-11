@@ -8,15 +8,14 @@ function filtrar(siguienteArray, condicion) {
         typeof (condicion) == typeof (posicion) && !arrayFiltrado.include(posicion))
     //finalmente ordenamos el array de menor a mayor a traves del metodo sort
     const arrayOrdenado = arrayFiltrado.sort((a, b) => a - b)
-    const aDevolver = (condicion != null && condicion != undefined) ? transformarTxT(arrayOrdenado) : `Error!`
-    return arrayFiltrado
+    if(condicion != null && condicion != undefined){
+        const transformado = arrayOrdenado.join('\n')
+        const transformarTxT = fs.writeFile('archivo.txt', transformado, (err) => {
+            if (err) throw err });
+        return transformarTxT      
+    }else{
+        return `ERROR!`
+    }
 }
 
-function transformarTxT(arrayOrdenado) {
-    const transformado = arrayOrdenado.join('\n');
-    const transformarTxT = fs.writeFile('archivo.txt', transformado, (err) => {
-        if (err) throw err
-    });
-    return transformarTxT
-}
 
